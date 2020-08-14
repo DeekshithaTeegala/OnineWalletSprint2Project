@@ -1,0 +1,31 @@
+https://github.com/sneha899/sprint2
+
+drop sequence account_seq ;
+drop sequence transaction_seq;
+drop table walletaccount_tbl cascade constraint;
+drop table wallettrans_tbl cascade constraint ;
+
+create table walletAccount_tbl(account_id number(6) primary key, accountbal number(8,2),status varchar2(15));
+
+create table walletTrans_tbl(trans_id number(6) primary key,description varchar2(15),trxdate  date,trxamount number(8,2),accountBal number(8,2), account_id number(6),foreign key(account_id) references walletAccount_tbl(account_id));
+
+create sequence account_seq start with 2001;
+
+create sequence transaction_seq start with 1001;
+
+insert into walletAccount_tbl values(account_seq.nextval,10000,'saving');
+
+insert into walletAccount_tbl values(account_seq.nextval,15000,'current');
+insert into walletAccount_tbl values(account_seq.nextval,20000,'saving');
+
+insert into walletAccount_tbl values(account_seq.nextval,25000,'saving');
+
+insert into walletTrans_tbl values(transaction_seq.nextval,'deposit',TO_date('2019-01-01','YYYY-MM-DD'),2500,12500,2001);
+
+insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2019-09-22','YYYY-MM-DD'),500,14500,2002);
+
+insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2019-10-12','YYYY-MM-DD'),500,19500,2003);
+
+insert into walletTrans_tbl values(transaction_seq.nextval,'deposit',TO_date('2019-12-12','YYYY-MM-DD'),1000,26000,2004);
+
+insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2019-09-22','YYYY-MM-DD'),500,14000,2002);
