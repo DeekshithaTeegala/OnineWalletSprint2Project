@@ -20,6 +20,8 @@ insert into walletAccount_tbl values(account_seq.nextval,20000,'saving');
 
 insert into walletAccount_tbl values(account_seq.nextval,25000,'saving');
 
+commit;
+
 insert into walletTrans_tbl values(transaction_seq.nextval,'deposit',TO_date('2019-01-01','YYYY-MM-DD'),2500,12500,2001);
 
 insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2019-09-22','YYYY-MM-DD'),500,14500,2002);
@@ -29,3 +31,5 @@ insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2
 insert into walletTrans_tbl values(transaction_seq.nextval,'deposit',TO_date('2019-12-12','YYYY-MM-DD'),1000,26000,2004);
 
 insert into walletTrans_tbl values(transaction_seq.nextval,'withdraw',TO_date('2019-09-22','YYYY-MM-DD'),500,14000,2002);
+
+commit;
